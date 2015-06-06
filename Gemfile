@@ -24,6 +24,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 # Adding Devise for assign user authentication
 gem 'devise'
+# Add faker to fake user input
+gem 'faker'
+# Figaro to handle sensitive data
+gem 'figaro', '1.0'
+
 
 group :production do 
   gem 'pg'
@@ -32,6 +37,9 @@ end
 
 group :development do
   gem 'sqlite3'
+  # Better errors
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
 
 

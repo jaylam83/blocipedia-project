@@ -1,5 +1,11 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome <%= @name %>!</p>
+
+<p>Thank you for signing up for AlohaWiki.</p>
+
+<p>You one step away from accessing all you need to know about the great state of Hawaii</p>
 
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Thank you! The AlohaWiki Team</p>
