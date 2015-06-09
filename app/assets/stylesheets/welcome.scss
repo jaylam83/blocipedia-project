@@ -1,9 +1,6 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-image: url("http://static.hdw.eweb4.com/media/wallpapers_dl/1/114/1130608-waikiki-hawaii.jpg");
- }
 
 #aloha{
   margin-top: 100px;
@@ -12,11 +9,15 @@ body {
 p#index-title {
     text-align: center;
     color: white;
-    font-size: 50px;
+    font-size: 150px;
     
 }
 p#sub-index-title {
   text-align: center;
   color: white;
   font-size: 15px;
+}
+
+#center-bn{
+  text-align: center;
 }
