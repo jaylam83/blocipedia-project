@@ -12,6 +12,7 @@
     <ul class="nav nav-tabs", role="navigation">
         <li><%= link_to "Home", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
+        <li><%= link_to "Wiki's", wikis_path %></li>
         <div class="pull-right user-info">
       <%if current_user %>
         Hello <%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -20,13 +21,8 @@
       <% end %>
   </div>
 </ul>
-  <br>
+  
 
-    
-      
-          
-        
-      
       <% if flash[:notice] %>
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;
@@ -41,6 +37,7 @@
               <span class="glyphicon glyphicon-remove" aria-hidden="true">
           </span> 
         </button>
+        <%= flash[:error] %>
       </div>
         <% elsif flash[:alert] %>
           <div class="alert alert-warning">
@@ -48,15 +45,10 @@
               <span class="glyphicon glyphicon-warning-sign " aria-hidden="true">
           </span> 
         </button>
+        <%= flash[:alert] %>
       </div>
     <% end %>
     <%= yield %>        
   </div>
-
-
-
-
-
-
 </body>
 </html>
