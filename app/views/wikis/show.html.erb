@@ -10,8 +10,17 @@
           Action <span class="caret"></span>
         </button>
           <ul class="dropdown-menu" role="menu">
+            <% if current_user.can_edit?(@wiki) %>
             <li><%= link_to "Edit Wiki", edit_wiki_path(@wiki) %></li>
-            <li><%= link_to "Delete Wiki", wiki_path, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+            <% else %>
+            <p id="menu-word">Cannot Edit</p>
+            <% end %>
+            <% if current_user.can_edit?(@wiki) %>
+            <li><%= link_to "Delete Wiki", wiki_path(@wiki), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+            <% else %>
+            <p id="menu-word">Cannot Delete</p>
+            <% end %>
+
             <li class="divider"></li>
             
           </ul>
