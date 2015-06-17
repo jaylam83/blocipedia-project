@@ -1,6 +1,7 @@
 class WikisController < ApplicationController
+  
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.includes(:user).paginate(page: params[:page], per_page: 10)
   end
 
   def show
