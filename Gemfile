@@ -28,8 +28,15 @@ gem 'devise'
 gem 'faker'
 # Figaro to handle sensitive data
 gem 'figaro', '1.0'
+#Stripe for payment processing
+gem 'stripe'
 #Will paginate to page tab 
 gem 'will_paginate', '~> 3.0.5'
+#Image uploading Gems
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
 
 
 group :production do 

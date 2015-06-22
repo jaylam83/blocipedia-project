@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   after_create :set_as_standard
 
   has_many :wikis
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -68,6 +69,10 @@ def can_update?(issue)
   true if owns?(issue) || admin?
 end
 
+def can_private?
+  true if premium? || admin?
+end
+
 #defining role methods
 
 def owns?(issue)
@@ -76,6 +81,10 @@ end
 
 def admin?
   true if self.role == USER_ROLES[:admin]
+end
+
+def premium?
+  true if self.role == USER_ROLES[:premium]
 end
 
 def role_name

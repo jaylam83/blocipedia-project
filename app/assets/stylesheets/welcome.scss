@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #aloha{
-  margin-top: 100px;
+  margin-top: 125px;
+  margin-bottom: 125px;
 
 }
 p#index-title {
@@ -19,5 +20,9 @@ p#sub-index-title {
 }
 
 #center-bn{
+  text-align: center;
+}
+
+#subbox{
   text-align: center;
 }
