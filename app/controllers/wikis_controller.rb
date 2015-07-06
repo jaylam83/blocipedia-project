@@ -1,7 +1,11 @@
 class WikisController < ApplicationController
   
   def index
-    @wikis = Wiki.includes(:user).paginate(page: params[:page], per_page: 10)
+    if current_user.can_private?
+      @wikis = Wiki.includes(:user).paginate(page: params[:page], per_page: 10)
+    else
+      @wikis = Wiki.includes(:user).visible_private.paginate(page: params[:page], per_page: 10)
+    end
   end
 
   def show
@@ -53,7 +57,7 @@ class WikisController < ApplicationController
 private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :user)
+    params.require(:wiki).permit(:title, :body, :user, :private, :image)
   end
 end
 

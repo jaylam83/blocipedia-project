@@ -5,6 +5,9 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
+            <% if wik.title? %>
+            <%= image_tag(wik.image.thumb.url) %>
+            <% end %>
             <%= link_to wik.title, wik %>
           </h4>
         </div>

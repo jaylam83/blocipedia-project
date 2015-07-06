@@ -29,6 +29,19 @@
         <div class="form-group">
         <%= f.submit "Save", class: 'btn btn-success' %>
         </div>
+      </div>
+      <div class= 'col-md-4'>
+        <div class="form-group">
+        <% if @wiki.image? %>
+        <%= image_tag(@wiki.image.url ) %>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+          <%= f.hidden_field :image_cache %>
+        </div>
+      </div>
+        
       <% end %>
     </div>
     

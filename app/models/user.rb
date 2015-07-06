@@ -50,6 +50,10 @@ end
 
 def set_as_standard
   self.role = USER_ROLES[:standard]
+  self.save
+  self.wikis.each do | wiki |
+    wiki.update_attributes(private: false)
+  end
 end
 
 def set_as_premium
@@ -70,7 +74,11 @@ def can_update?(issue)
 end
 
 def can_private?
-  true if premium? || admin?
+  if premium? || admin?
+    true
+  else
+    false
+  end
 end
 
 #defining role methods
@@ -85,6 +93,10 @@ end
 
 def premium?
   true if self.role == USER_ROLES[:premium]
+end
+
+def standard?
+  true if self.role == USER_ROLES[:standard]
 end
 
 def role_name

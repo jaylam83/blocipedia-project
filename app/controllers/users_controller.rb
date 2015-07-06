@@ -18,10 +18,8 @@ end
 
 
 def downgrade
-  current_user.role = "standard"
-  current_user.save!
 
-  if current_user.save
+  if current_user.set_as_standard
     flash[:notice] = "Successfully Downgraded"
     redirect_to edit_user_registration_path
   else

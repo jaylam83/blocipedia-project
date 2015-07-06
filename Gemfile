@@ -36,6 +36,8 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+#Redcarpet for markdown text
+gem 'redcarpet'
 
 
 
